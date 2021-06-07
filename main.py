@@ -4,7 +4,7 @@ from flask_cors import CORS
 
 from random import choice
 import openai
-import json
+import json 
 web_site = Flask(__name__)
 CORS(web_site)
 prompt_seed = "Q: Fetch unique values of DEPARTMENT from Worker table.\nA: Select distinct DEPARTMENT from Worker;\nQ: Print the first three characters of FIRST_NAME from Worker table.\nA: Select substring(FIRST_NAME,1,3) from Worker;\nQ: Find the position of the alphabet ('a') in the first name column 'Amitabh' from Worker table.\nA: Select INSTR(FIRST_NAME, BINARY'a') from Worker where FIRST_NAME = 'Amitabh';\nQ: Print the FIRST_NAME from Worker table after replacing 'a' with 'A'.\nA: Select CONCAT(FIRST_NAME, ' ', LAST_NAME) AS 'COMPLETE_NAME' from Worker;\nQ: Display the second highest salary from the Worker table.\nA: Select max(Salary) from Worker where Salary not in (Select max(Salary) from Worker);\nQ: Fetch the count of employees working in the department Admin.\nA: SELECT COUNT(*) FROM worker WHERE DEPARTMENT = 'Admin';.\nQ: "
